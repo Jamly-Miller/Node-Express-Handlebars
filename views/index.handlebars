@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamly Burger</title>
-</head>
-<body>
-    <h1>Today's Special</h1>
-</body>
-</html>
+<!-- 5. Output the burgerName string, burgers boolean to the page for all the burgers. -->
+<ul>
+  {{#each burgers}}
+    <li>
+      <p>ID: {{burgerType}}</p>
+      <p>burger_name: {{burgerName}}</p>
+      <p>devoured: {{devoutness}}</p>
+    </li>
+  {{/each}}
+</ul>
+
