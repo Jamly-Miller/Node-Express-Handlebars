@@ -3,11 +3,11 @@ const express = require('express');
 const router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-const cat = require('../models/burger');
+const burgers = require('../models/burger');
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", (req, res) => {
-    burger.selectAll((result) => {
+    burgers.selectAll((result) => {
       const obj = {
         burgers: result,
       };
@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 
 
 router.post("/api/burgers", (req, res) => {
-    burger.insertOne(req.body.burgerName, (data) => {
+    burgers.create(req.body.burgerName, (data) => {
     // Send back the ID of the new quote
       res.json({ id: data.insertId });
     });
@@ -26,7 +26,7 @@ router.post("/api/burgers", (req, res) => {
 
 
 router.put("/api/burgers/:id", (req, res) => {
-    burger.updateOne(req.params.id, (data) => {
+    burgers.update(req.params.id, (data) => {
       if (data.affectedRows === 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
