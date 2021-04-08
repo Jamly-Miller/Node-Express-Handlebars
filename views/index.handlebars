@@ -1,11 +1,54 @@
-<!-- 5. Output the burgerName string, burgers boolean to the page for all the burgers. -->
-<ul>
-  {{#each burgers}}
-    <li>
-      <p>ID: {{burgerType}}</p>
-      <p>burger_name: {{burgerName}}</p>
-      <p>devoured: {{devoutness}}</p>
-    </li>
-  {{/each}}
-</ul>
+<body>
+  <h1>Jam's Burger</h1>    
+  
+  <div class="container">
+    <div class="row">
+      {{!-- // --}}
+      <div class="col-md-6">
+        <div class="card mt-5 mx-auto text-center text-white bg-dark">
+          <h4 class="card-title">Order Here</h4>
+          <ul>
+            {{#each burgers}} {{#unless devoured}} {{> burgers/burger_block
+            devoured=true}} {{/unless}} {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{!-- // --}}
+      <div class="col-md-6">
+        <div class="card mt-5 mx-auto text-center text-white bg-dark">
+          <h4 class="card-title">Devoured</h4>
+          <ul>
+             {{#each burgers}} 
+            {{#if devoured}}
+            <li>
+              {{burger_name}}
+            </li>  
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{!-- // --}}
+    </div>
+   </div>
 
+{{!-- // --}}
+  <div class="container-fluid">
+
+    <div class="mx-auto text-center mt-5" style="width: 200px">
+      <div class="card-body">
+        <form id="form">
+          <div class="form-group">
+            <input
+               type="input"
+              class="form-control"
+              id="burger"
+              placeholder="Add a Burger"
+            />
+          </div>
+          <button type="submit" class="btn btn-info">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

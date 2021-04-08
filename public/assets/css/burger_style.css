@@ -1,3 +1,7 @@
-body {
+.container {
     background-color: rgb(15, 128, 143);
+}
+
+#PageBody {
+    background-image: url(/assets/img/burger2.jpg);
 }
