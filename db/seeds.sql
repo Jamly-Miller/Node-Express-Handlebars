@@ -1,4 +1,4 @@
-USE burgers;
+USE burgers_db;
 INSERT INTO burgers (burger_name, devoured) VALUES ("Single Cheese Burger", FALSE);
 INSERT INTO burgers (burger_name, devoured) VALUES ("Couple Cheese Burger", FALSE);
 INSERT INTO burgers (burger_name, devoured) VALUES ("Bacon Sausage Burger", FALSE);

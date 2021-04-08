@@ -11,14 +11,13 @@ router.get("/", (req, res) => {
       const obj = {
         burgers: result,
       };
-  
       res.render("index", obj);
     });
 });
 
 
 router.post("/api/burgers", (req, res) => {
-    burgers.create(req.body.burgerName, (data) => {
+    burgers.insertOne(req.body.burgerName, (data) => {
     // Send back the ID of the new quote
       res.json({ id: data.insertId });
     });
@@ -26,7 +25,7 @@ router.post("/api/burgers", (req, res) => {
 
 
 router.put("/api/burgers/:id", (req, res) => {
-    burgers.update(req.params.id, (data) => {
+    burgers.updateOne(req.params.id, (data) => {
       if (data.affectedRows === 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
